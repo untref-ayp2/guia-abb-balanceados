@@ -1,0 +1,310 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: TestAVLTreeEmptyTree
+      id: testavltreeemptytree
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLTreeEmptyTree
+        setup-command: ''
+        command: go test ./... -run ^TestAVLTreeEmptyTree$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLTreeInsertAndSearch
+      id: testavltreeinsertandsearch
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLTreeInsertAndSearch
+        setup-command: ''
+        command: go test ./... -run ^TestAVLTreeInsertAndSearch$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLTreeFindMinMax
+      id: testavltreefindminmax
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLTreeFindMinMax
+        setup-command: ''
+        command: go test ./... -run ^TestAVLTreeFindMinMax$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLTreeRemove
+      id: testavltreeremove
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLTreeRemove
+        setup-command: ''
+        command: go test ./... -run ^TestAVLTreeRemove$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLTreeClear
+      id: testavltreeclear
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLTreeClear
+        setup-command: ''
+        command: go test ./... -run ^TestAVLTreeClear$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLTreeHeightAndBalance
+      id: testavltreeheightandbalance
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLTreeHeightAndBalance
+        setup-command: ''
+        command: go test ./... -run ^TestAVLTreeHeightAndBalance$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLTreeString
+      id: testavltreestring
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLTreeString
+        setup-command: ''
+        command: go test ./... -run ^TestAVLTreeString$
+        timeout: 10
+        max-score: 1
+    - name: TestIsAVLEmptyTree
+      id: testisavlemptytree
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestIsAVLEmptyTree
+        setup-command: ''
+        command: go test ./... -run ^TestIsAVLEmptyTree$
+        timeout: 10
+        max-score: 1
+    - name: TestIsAVLBalancedTree
+      id: testisavlbalancedtree
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestIsAVLBalancedTree
+        setup-command: ''
+        command: go test ./... -run ^TestIsAVLBalancedTree$
+        timeout: 10
+        max-score: 1
+    - name: TestIsAVLUnbalancedLeftHeavy
+      id: testisavlunbalancedleftheavy
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestIsAVLUnbalancedLeftHeavy
+        setup-command: ''
+        command: go test ./... -run ^TestIsAVLUnbalancedLeftHeavy$
+        timeout: 10
+        max-score: 1
+    - name: TestIsAVLUnbalancedRightHeavy
+      id: testisavlunbalancedrightheavy
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestIsAVLUnbalancedRightHeavy
+        setup-command: ''
+        command: go test ./... -run ^TestIsAVLUnbalancedRightHeavy$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLPosOrderIteratorVacio
+      id: testavlposorderiteratorvacio
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLPosOrderIteratorVacio
+        setup-command: ''
+        command: go test ./... -run ^TestAVLPosOrderIteratorVacio$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLPosOrderIterator
+      id: testavlposorderiterator
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLPosOrderIterator
+        setup-command: ''
+        command: go test ./... -run ^TestAVLPosOrderIterator$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLPosOrderIteratorNextOverflow
+      id: testavlposorderiteratornextoverflow
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLPosOrderIteratorNextOverflow
+        setup-command: ''
+        command: go test ./... -run ^TestAVLPosOrderIteratorNextOverflow$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLPreOrderIteratorVacio
+      id: testavlpreorderiteratorvacio
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLPreOrderIteratorVacio
+        setup-command: ''
+        command: go test ./... -run ^TestAVLPreOrderIteratorVacio$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLPreOrderIterator
+      id: testavlpreorderiterator
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLPreOrderIterator
+        setup-command: ''
+        command: go test ./... -run ^TestAVLPreOrderIterator$
+        timeout: 10
+        max-score: 1
+    - name: TestAVLPreOrderIteratorNextOverflow
+      id: testavlpreorderiteratornextoverflow
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestAVLPreOrderIteratorNextOverflow
+        setup-command: ''
+        command: go test ./... -run ^TestAVLPreOrderIteratorNextOverflow$
+        timeout: 10
+        max-score: 1
+    - name: TestNewTreeSet
+      id: testnewtreeset
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestNewTreeSet
+        setup-command: ''
+        command: go test ./... -run ^TestNewTreeSet$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetAdd
+      id: testtreesetadd
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetAdd
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetAdd$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetAddMultiple
+      id: testtreesetaddmultiple
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetAddMultiple
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetAddMultiple$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetAddExistenteNoRepite
+      id: testtreesetaddexistentenorepite
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetAddExistenteNoRepite
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetAddExistenteNoRepite$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetContains
+      id: testtreesetcontains
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetContains
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetContains$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetRemove
+      id: testtreesetremove
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetRemove
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetRemove$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetRemoveNonExistent
+      id: testtreesetremovenonexistent
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetRemoveNonExistent
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetRemoveNonExistent$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetSize
+      id: testtreesetsize
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetSize
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetSize$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetaluesOnAnEmptySet
+      id: testtreesetaluesonanemptyset
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetaluesOnAnEmptySet
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetaluesOnAnEmptySet$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetValuesOnANonEmptySet
+      id: testtreesetvaluesonanonemptyset
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetValuesOnANonEmptySet
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetValuesOnANonEmptySet$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetStringEnSetVacio
+      id: testtreesetstringensetvacio
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetStringEnSetVacio
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetStringEnSetVacio$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetStringEnSetNoVacio
+      id: testtreesetstringensetnovacio
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetStringEnSetNoVacio
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetStringEnSetNoVacio$
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTAVLTREEEMPTYTREE_RESULTS: ${{steps.testavltreeemptytree.outputs.result}}
+        TESTAVLTREEINSERTANDSEARCH_RESULTS: ${{steps.testavltreeinsertandsearch.outputs.result}}
+        TESTAVLTREEFINDMINMAX_RESULTS: ${{steps.testavltreefindminmax.outputs.result}}
+        TESTAVLTREEREMOVE_RESULTS: ${{steps.testavltreeremove.outputs.result}}
+        TESTAVLTREECLEAR_RESULTS: ${{steps.testavltreeclear.outputs.result}}
+        TESTAVLTREEHEIGHTANDBALANCE_RESULTS: ${{steps.testavltreeheightandbalance.outputs.result}}
+        TESTAVLTREESTRING_RESULTS: ${{steps.testavltreestring.outputs.result}}
+        TESTISAVLEMPTYTREE_RESULTS: ${{steps.testisavlemptytree.outputs.result}}
+        TESTISAVLBALANCEDTREE_RESULTS: ${{steps.testisavlbalancedtree.outputs.result}}
+        TESTISAVLUNBALANCEDLEFTHEAVY_RESULTS: ${{steps.testisavlunbalancedleftheavy.outputs.result}}
+        TESTISAVLUNBALANCEDRIGHTHEAVY_RESULTS: ${{steps.testisavlunbalancedrightheavy.outputs.result}}
+        TESTAVLPOSORDERITERATORVACIO_RESULTS: ${{steps.testavlposorderiteratorvacio.outputs.result}}
+        TESTAVLPOSORDERITERATOR_RESULTS: ${{steps.testavlposorderiterator.outputs.result}}
+        TESTAVLPOSORDERITERATORNEXTOVERFLOW_RESULTS: ${{steps.testavlposorderiteratornextoverflow.outputs.result}}
+        TESTAVLPREORDERITERATORVACIO_RESULTS: ${{steps.testavlpreorderiteratorvacio.outputs.result}}
+        TESTAVLPREORDERITERATOR_RESULTS: ${{steps.testavlpreorderiterator.outputs.result}}
+        TESTAVLPREORDERITERATORNEXTOVERFLOW_RESULTS: ${{steps.testavlpreorderiteratornextoverflow.outputs.result}}
+        TESTNEWTREESET_RESULTS: ${{steps.testnewtreeset.outputs.result}}
+        TESTTREESETADD_RESULTS: ${{steps.testtreesetadd.outputs.result}}
+        TESTTREESETADDMULTIPLE_RESULTS: ${{steps.testtreesetaddmultiple.outputs.result}}
+        TESTTREESETADDEXISTENTENOREPITE_RESULTS: ${{steps.testtreesetaddexistentenorepite.outputs.result}}
+        TESTTREESETCONTAINS_RESULTS: ${{steps.testtreesetcontains.outputs.result}}
+        TESTTREESETREMOVE_RESULTS: ${{steps.testtreesetremove.outputs.result}}
+        TESTTREESETREMOVENONEXISTENT_RESULTS: ${{steps.testtreesetremovenonexistent.outputs.result}}
+        TESTTREESETSIZE_RESULTS: ${{steps.testtreesetsize.outputs.result}}
+        TESTTREESETALUESONANEMPTYSET_RESULTS: ${{steps.testtreesetaluesonanemptyset.outputs.result}}
+        TESTTREESETVALUESONANONEMPTYSET_RESULTS: ${{steps.testtreesetvaluesonanonemptyset.outputs.result}}
+        TESTTREESETSTRINGENSETVACIO_RESULTS: ${{steps.testtreesetstringensetvacio.outputs.result}}
+        TESTTREESETSTRINGENSETNOVACIO_RESULTS: ${{steps.testtreesetstringensetnovacio.outputs.result}}
+      with:
+        runners: testavltreeemptytree,testavltreeinsertandsearch,testavltreefindminmax,testavltreeremove,testavltreeclear,testavltreeheightandbalance,testavltreestring,testisavlemptytree,testisavlbalancedtree,testisavlunbalancedleftheavy,testisavlunbalancedrightheavy,testavlposorderiteratorvacio,testavlposorderiterator,testavlposorderiteratornextoverflow,testavlpreorderiteratorvacio,testavlpreorderiterator,testavlpreorderiteratornextoverflow,testnewtreeset,testtreesetadd,testtreesetaddmultiple,testtreesetaddexistentenorepite,testtreesetcontains,testtreesetremove,testtreesetremovenonexistent,testtreesetsize,testtreesetaluesonanemptyset,testtreesetvaluesonanonemptyset,testtreesetstringensetvacio,testtreesetstringensetnovacio
