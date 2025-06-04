@@ -1,4 +1,4 @@
-# Guía: Árboles Binario de Búsqueda Balanceados
+# Guía: Árboles Binarios de Búsqueda Balanceados
 
 ## Ejercicios
 
